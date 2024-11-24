@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cjq8j1p7o6lhu"
+path="res://.godot/imported/19 - Ascension.ogg-48a9ddd76e6e48a76166d46048d18cb6.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/ninja adventure/Musics/19 - Ascension.ogg"
+dest_files=["res://.godot/imported/19 - Ascension.ogg-48a9ddd76e6e48a76166d46048d18cb6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

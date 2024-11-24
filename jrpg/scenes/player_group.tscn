@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3mmq5be0xe6r"]
+
+[ext_resource type="PackedScene" uid="uid://btsfl5udd7m4d" path="res://scenes/character.tscn" id="1_6jjbw"]
+[ext_resource type="Script" path="res://scripts/player_group.gd" id="1_egikw"]
+[ext_resource type="Texture2D" uid="uid://b3cj4mlvmcrq1" path="res://assets/ninja adventure/Actor/Characters/NinjaYellow/SpriteSheet.png" id="2_tc4jp"]
+[ext_resource type="Texture2D" uid="uid://bxi2hcph7hemd" path="res://assets/ninja adventure/Actor/Characters/NinjaMageOrange/SpriteSheet.png" id="4_r5r8f"]
+[ext_resource type="Texture2D" uid="uid://cq0q65n17nsq1" path="res://assets/ninja adventure/Actor/Characters/NinjaEskimo/SpriteSheet.png" id="5_yo1aj"]
+[ext_resource type="Texture2D" uid="uid://c7c4v8dedotsh" path="res://assets/ninja adventure/Actor/Characters/SamuraiBlue/SpriteSheet.png" id="6_a2u0i"]
+
+[node name="PlayerGroup" type="Node2D"]
+script = ExtResource("1_egikw")
+
+[node name="Character" parent="." instance=ExtResource("1_6jjbw")]
+
+[node name="sprite" parent="Character" index="0"]
+position = Vector2(0, -6)
+scale = Vector2(1, 1)
+texture = ExtResource("2_tc4jp")
+vframes = 7
+
+[node name="Character2" parent="." instance=ExtResource("1_6jjbw")]
+
+[node name="sprite" parent="Character2" index="0"]
+position = Vector2(0, -6)
+scale = Vector2(1, 1)
+texture = ExtResource("5_yo1aj")
+vframes = 7
+
+[node name="Character3" parent="." instance=ExtResource("1_6jjbw")]
+
+[node name="sprite" parent="Character3" index="0"]
+position = Vector2(0, -6)
+scale = Vector2(1, 1)
+texture = ExtResource("4_r5r8f")
+vframes = 7
+
+[node name="Character4" parent="." instance=ExtResource("1_6jjbw")]
+
+[node name="sprite" parent="Character4" index="0"]
+position = Vector2(0, -6)
+scale = Vector2(1, 1)
+texture = ExtResource("6_a2u0i")
+vframes = 7
+
+[editable path="Character"]
+[editable path="Character2"]
+[editable path="Character3"]
+[editable path="Character4"]

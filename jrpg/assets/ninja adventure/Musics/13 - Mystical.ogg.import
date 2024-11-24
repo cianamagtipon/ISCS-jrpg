@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c86afl4n5pevc"
+path="res://.godot/imported/13 - Mystical.ogg-cef11fe7a828bbad0f61af6f0f7282dc.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/ninja adventure/Musics/13 - Mystical.ogg"
+dest_files=["res://.godot/imported/13 - Mystical.ogg-cef11fe7a828bbad0f61af6f0f7282dc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
