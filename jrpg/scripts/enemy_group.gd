@@ -65,8 +65,7 @@ func _reset_focus():
 
 func _start_choosing():
 	_reset_focus()
-	enemies[0].focus
-	
+	enemies[0].focus()
 
 
 func _on_attack_pressed() -> void:
