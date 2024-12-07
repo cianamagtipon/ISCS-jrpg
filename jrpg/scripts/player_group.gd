@@ -30,7 +30,7 @@ func _on_enemy_group_next_player() -> void:
 func show_choice(index: int) -> void:
 	enemy_group._reset_focus()
 	choice.show()
-	choice.find_child("Attack").grab_focus()
+	choice.find_child("BasicAtk").grab_focus()
 
 
 func switch_focus(x,y):

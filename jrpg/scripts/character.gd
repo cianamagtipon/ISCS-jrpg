@@ -32,3 +32,15 @@ func unfocus():
 
 func take_damage(value):
 	health -= value
+
+
+func critical_damage(value):
+	health -= value
+
+
+func heal_damage(value):
+	health += value
+
+
+func shield(value):
+	health == health
