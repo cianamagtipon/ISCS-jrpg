@@ -71,3 +71,8 @@ func _start_choosing():
 func _on_attack_pressed() -> void:
 	choice.hide()
 	_start_choosing()
+
+
+func _on_crit_dmg_pressed() -> void:
+	choice.hide()
+	_start_choosing()
