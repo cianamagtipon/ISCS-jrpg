@@ -495,11 +495,11 @@ texture_filter = 1
 layout_mode = 2
 text = "Attack"
 
-[node name="Defend" type="Button" parent="CanvasLayer/choice"]
+[node name="Heal" type="Button" parent="CanvasLayer/choice"]
 texture_filter = 1
 layout_mode = 2
 disabled = true
-text = "Defend"
+text = "Heal"
 
 [node name="Run" type="Button" parent="CanvasLayer/choice"]
 texture_filter = 1
