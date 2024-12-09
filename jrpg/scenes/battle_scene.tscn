@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://60pkhy8rt8uv"]
+[gd_scene load_steps=7 format=3 uid="uid://60pkhy8rt8uv"]
 
+[ext_resource type="Script" path="res://scripts/battle_scene.gd" id="1_3o24o"]
 [ext_resource type="PackedScene" uid="uid://bria5ok63h7o4" path="res://scenes/enemy_group.tscn" id="1_a4iy4"]
 [ext_resource type="Texture2D" uid="uid://bhn8uotc2umpp" path="res://assets/ninja adventure/Backgrounds/Tilesets/TilesetFloor.png" id="1_o2654"]
 [ext_resource type="PackedScene" uid="uid://d3mmq5be0xe6r" path="res://scenes/player_group.tscn" id="2_btnhs"]
@@ -469,6 +470,7 @@ texture = ExtResource("1_o2654")
 sources/0 = SubResource("TileSetAtlasSource_mwai2")
 
 [node name="BattleScene" type="Node2D"]
+script = ExtResource("1_3o24o")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ijfmj")
