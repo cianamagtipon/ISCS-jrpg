@@ -64,14 +64,20 @@ func _process(_delta: float) -> void:
 	if action_queue.size() == enemies.size() and not is_battling:
 		is_battling = true
 		_action(action_stack)
-		print(action_queue)
 
 
 func clean_up_enemies():
 	valid_enemies = enemies.filter(is_instance_valid)
 
 
-func _action(stack):
+func _action(action_stack):
+	
+	for i in range(min(action_queue.size(), combat_actions.size())):
+		action_stack.append({
+			"target": action_queue[i],
+			"action": combat_actions[i]
+			})
+
 	for action in action_stack:
 		var target_index = action["target"]
 		var action_type = action["action"]
@@ -86,17 +92,15 @@ func _action(stack):
 		elif action_type == "heal":
 			enemies[target_index].heal(1)
 		
-		for i in action_stack.size():
-			if i < action_queue.size():
-				action_stack[i]["target"] = action_queue[i]
-		
-		print(action_type)
+		print(target_index)
+		print(combat_actions)
 		enemies[target_index].is_dead()
 		await get_tree().create_timer(1).timeout
-	
+			
 	print(action_stack)
 	combat_actions.clear()
 	action_queue.clear()
+	action_stack.clear()
 	is_battling = false
 	show_choice()
 
@@ -138,12 +142,12 @@ func _start_choosing():
 
 
 func _on_attack_pressed() -> void:
-	action_stack.append({"target": index, "action": "basic"})
+	combat_actions.append("basic")
 	choice.hide()
 	_start_choosing()
 
 
 func _on_crit_dmg_pressed() -> void:
-	action_stack.append({"target": index, "action": "critical"})
+	combat_actions.append("critical")
 	choice.hide()
 	_start_choosing()
