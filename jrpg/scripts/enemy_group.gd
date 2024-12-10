@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name EnemyGroup
+
 var enemies: Array = []
 var action_queue: Array = []
 var combat_actions: Array = []
@@ -7,6 +9,7 @@ var valid_enemies: Array = []
 var action_stack: Array = []
 
 var cur_char: Character
+var player_group: PlayerGroup
 var current_health: float
 var is_alive: bool = false
 var is_battling: bool = false
@@ -14,8 +17,9 @@ var is_battling: bool = false
 var index: int = 0
 var moves: int = 0
 
-signal decide_combat_action
+
 signal next_player
+signal decide_combat_action()
 @onready var choice = $"../CanvasLayer/choice"
 
 
@@ -25,6 +29,10 @@ func _ready() -> void:
 		enemies[i].position = Vector2(0, i*40)
 	
 	show_choice()
+
+
+func wait(seconds: float) -> Signal:
+	return get_tree().create_timer(seconds).timeout
 
 
 func _process(_delta: float) -> void:
@@ -65,6 +73,8 @@ func _process(_delta: float) -> void:
 	if action_queue.size() == enemies.size() and not is_battling:
 		is_battling = true
 		_action(action_stack)
+		await wait(5.0)
+		emit_signal("decide_combat_action", player_group)
 
 
 func clean_up_enemies():
@@ -90,8 +100,6 @@ func _action(action_stack):
 			enemies[target_index].critical_damage(3)
 		elif action_type == "basic":
 			enemies[target_index].take_damage(1)
-		elif action_type == "heal":
-			enemies[target_index].heal(1)
 		
 		enemies[target_index].is_dead()
 		await get_tree().create_timer(1).timeout

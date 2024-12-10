@@ -1,9 +1,13 @@
 extends Node2D
 
+class_name PlayerGroup
+
 var players: Array = []
 var valid_players: Array = []
 var action_queue: Array = []
 var combat_actions: Array = []
+var action_stack: Array = []
+var action_style: Array = ["basic", "critical"]
 
 var current_health: float
 var is_alive: bool = false
@@ -56,8 +60,12 @@ func clean_up_players():
 	valid_players = players.filter(is_instance_valid)
 
 
-func _decide_combat_action():
+func decide_combat_action():
 	var health_percent = current_health
+	
+	for i in valid_players.size():
+		var random_index = randi() % action_style.size()
+		combat_actions.append(action_style[random_index])
 
 	for i in combat_actions:
 		var action = combat_actions[i]
@@ -71,6 +79,8 @@ func _decide_combat_action():
 		else:
 			cast_combat_action(action)
 			return
+	
+	print(combat_actions)
 
 
 func cast_combat_action(action):
@@ -82,8 +92,6 @@ func cast_combat_action(action):
 			players[i].critical_damage(3)
 		elif combat_actions[i] == "basic":
 			players[i].take_damage(1)
-		elif combat_actions[i] == "heal":
-			players[i].heal(1)
 		
 		players[i].is_dead()
 		await get_tree().create_timer(1).timeout
