@@ -23,6 +23,11 @@ func _update_progress_bar():
 	progress_bar.value = (health/max_health)*100
 
 
+func get_health_percent():
+	health_percent = health/max_health
+	return health_percent
+
+
 func _play_animation():
 	animation_player.stop()
 	animation_player.play("hurt")

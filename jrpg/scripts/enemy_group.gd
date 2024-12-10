@@ -14,6 +14,7 @@ var is_battling: bool = false
 var index: int = 0
 var moves: int = 0
 
+signal decide_combat_action
 signal next_player
 @onready var choice = $"../CanvasLayer/choice"
 
@@ -92,12 +93,9 @@ func _action(action_stack):
 		elif action_type == "heal":
 			enemies[target_index].heal(1)
 		
-		print(target_index)
-		print(combat_actions)
 		enemies[target_index].is_dead()
 		await get_tree().create_timer(1).timeout
 			
-	print(action_stack)
 	combat_actions.clear()
 	action_queue.clear()
 	action_stack.clear()
