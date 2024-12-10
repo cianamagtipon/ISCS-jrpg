@@ -86,7 +86,6 @@ func cast_combat_action(action):
 			players[i].heal(1)
 		
 		players[i].is_dead()
-		
 		await get_tree().create_timer(1).timeout
 	
 	combat_actions.clear()

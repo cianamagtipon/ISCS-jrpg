@@ -7,7 +7,6 @@ class_name Character
 @onready var animation_player = $AnimationPlayer
 
 @export var is_player_group: bool
-@export var value: int = 0
 @export var max_health: float = 7
 
 var health_percent: float
